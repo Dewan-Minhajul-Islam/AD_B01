@@ -10,6 +10,55 @@
 {% block content %}
 
     <center><h2>All Products Informations</h2></center><br>
+
+    <table class="table table-striped">
+
+        <thead>
+
+            <tr class="table-warning">
+
+                <th>SL Number</th>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Production Date</th>
+                <th>Product Type</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            
+            {% for data in p_data %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>
+                        
+                        {% if data.image %}
+                            <img src="/{{data.image}}" width="60" alt="">
+
+                        {% else %}
+                        No Image Found
+                        {% endif %}
+                            
+                    </td>
+                    <td>{{data.product_name}}</td>
+                    <td>{{data.description}}</td>
+                    <td>{{data.production_date}}</td>
+                    <td>{{data.product_type}}</td>
+                    <td>{{data.created_at}}</td>
+                    <td>{{data.updated_at}}</td>
+                </tr>
+                
+            {% endfor %}
+                
+
+        </tbody>
+
+    </table>
     
 {% endblock content %}
     
