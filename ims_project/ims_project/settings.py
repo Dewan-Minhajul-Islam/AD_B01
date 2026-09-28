@@ -132,3 +132,4 @@ MAILERS = {
 
 
 AUTH_USER_MODEL = 'users.CustomUserModel'
+LOGIN_URL = 'login_page'

@@ -1,12 +1,16 @@
 from django.shortcuts import render, redirect
 from products.models import ProductModel
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
+@login_required
 def home_view(request):
     
     return render(request, 'home.html')
 
 
+@login_required
 def product_view(request):
     
     pr_data = ProductModel.objects.all()
@@ -18,6 +22,7 @@ def product_view(request):
     return render(request, 'product-list.html', context)
 
 
+@login_required
 def product_form(request):
     
     if request.method == 'POST':
