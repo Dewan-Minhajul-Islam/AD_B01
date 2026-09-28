@@ -11,6 +11,8 @@
 
     <center><h1>Welcome to our Product Management System</h1><br>
     <h2>Hello! {{request.user.first_name}} {{request.user.last_name}}</h2></center><br><br>
+
+    <center><a class="btn btn-danger" href="{% url 'logout_page' %}" role="button">Logout</a></center>
     
 {% endblock content %}
     
