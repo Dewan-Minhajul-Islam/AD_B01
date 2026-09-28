@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from users.models import CustomUserModel
-
+from django.contrib.auth import authenticate, login
 
 
 # Create your views here.
@@ -38,5 +38,22 @@ def register_view(request):
 
 
 def login_view(request):
+    
+    if request.method == 'POST':
+        
+        lu_name = request.POST.get('u_name')
+        lu_password = request.POST.get('u_password')
+        
+        log_user = authenticate(
+            request,
+            username = lu_name,
+            password = lu_password
+        )
+        
+        if log_user:
+            login(request, log_user)
+            return redirect('home_page')
+        else:
+            print('Invalid Username or Password!')
     
     return render(request, 'login.html')
